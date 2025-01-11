@@ -1,9 +1,14 @@
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
+from dotenv import load_dotenv
+import os
 
-# Replace with your bot's token
-TOKEN = "YOUR_BOT_TOKEN"
-ADMIN_CHAT_ID = "YOUR_ADMIN_CHAT_ID"  # Replace with your admin chat ID
+# Load environment variables from .env file
+load_dotenv()
+
+# Replace with your bot's token and admin chat ID using environment variables
+TOKEN = os.getenv("BOT_TOKEN")
+ADMIN_CHAT_ID = os.getenv("ADMIN_CHAT_ID")
 
 # Function to handle new messages
 def start(update: Update, context: CallbackContext) -> None:
